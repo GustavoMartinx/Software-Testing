@@ -1,0 +1,12 @@
+# Ignorar arquivos e diretórios gerados pelo Maven
+**/target/
+
+# Ignorar arquivos de configuração específicos do IDE
+**/.classpath
+**/.project
+**/.settings/
+**/.idea/
+
+# Ignorar arquivos gerados pelo Maven
+**/*.iml
+**/*.jar
