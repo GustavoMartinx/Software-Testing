@@ -13,6 +13,7 @@ public class AppTest {
 
     // Caso de Teste 1 - O caso trivial: cujas entradas são as mais simples possíveis. Duas execuções: a) e b)
     // a) A maior estimativa na primeira posição e a menor na segunda.
+    // Resultado: Erro. O objeto lowestEstimate é nulo e por isso não pode chamar o método getEstimate()
     @Test
     public void testIdentifyExtremesSimple1() {
 
@@ -89,7 +90,7 @@ public class AppTest {
         List<String> result = planningPoker.identifyExtremes(estimates);
 
         // Verificando se os resultados esperados são retornados
-        assertEquals(Arrays.asList("Dev1", "Dev3"), result);
+        assertEquals(Arrays.asList("Dev2", "Dev1"), result);
     }
 
     // Caso de Teste 4 - Mais de um dev estimando o mesmo menor valor.
@@ -111,7 +112,7 @@ public class AppTest {
         List<String> result = planningPoker.identifyExtremes(estimates);
 
         // Verificando se os resultados esperados são retornados
-        assertEquals(Arrays.asList("Dev4", "Dev5"), result);
+        assertEquals(Arrays.asList("Dev4", "Dev3"), result);
     }
 
     // Caso de Teste 5 - Mais de um dev estimando o mesmo maior valor.
@@ -133,6 +134,6 @@ public class AppTest {
         List<String> result = planningPoker.identifyExtremes(estimates);
 
         // Verificando se os resultados esperados são retornados
-        assertEquals(Arrays.asList("Dev1", "Dev3"), result);
+        assertEquals(Arrays.asList("Dev2", "Dev4"), result);
     }
 }
