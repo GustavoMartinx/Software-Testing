@@ -1,6 +1,8 @@
 # Teste de Software
 Este repositório tem como objetivo armazenar os projetos e atividades desenvolvidos durante a disciplina de Teste de Software.
 
+<br>
+
 ## Como criar um projeto Java com Maven
 
 **1 -** Execute o seguinte comando para iniciar a criação de um projeto com Maven interativamente:
@@ -9,17 +11,19 @@ Este repositório tem como objetivo armazenar os projetos e atividades desenvolv
 mvn archetype:generate
 ```
 
-**2 -** Um diálogo iniciará, pressione Enter 2x para continuar.
+**2 -** Após executar o comando, um diálogo será iniciado. Pressione Enter duas vezes para continuar.
 
-**3 -** Digite o nome de algo (que não sei oq é - groupId) e pressione Enter.
+**3 -** Digite o ``groupId``, que geralmente é a identificação única do projeto no formato de domínio reverso (por exemplo, ``com.meuprojeto``), e pressione Enter.
 
-**4 -** Digite o nome do projeto (acho - artifactId) e pressione Enter.
+**4 -**  Digite o identificador do artefato (artifactId) e pressione Enter. O identificador do artefato é o nome do seu projeto, sem espaços ou caracteres especiais.
 
-**5 -** Digite o nome do pacote (acho - version) e pressione Enter.
+**5 -** Digite a versão do projeto (version) e pressione Enter. A versão é geralmente ``1.0-SNAPSHOT`` para um projeto inicial.
 
-**6 -** Digite o nome do pacote (acho - package) e pressione Enter.
+**6 -** Digite o pacote base (package) e pressione Enter. O pacote base é o pacote Java principal para as classes do seu projeto, como ``com.exemplo.projeto``.
 
 **7 -** Confirme pressionando Enter para finalizar.
+
+**8 -** Para a fase "_package_" que inclui a compilação do código-fonte, a execução de testes e o empacotamento do artefato resultante, execute:
 
 ```bash
 cd <projectName>
