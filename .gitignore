@@ -10,3 +10,6 @@
 # Ignorar arquivos gerados pelo Maven
 **/*.iml
 **/*.jar
+
+# Ignorar arquivos gerados pelo Visual Studio Code
+**/.vscode
