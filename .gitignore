@@ -13,3 +13,6 @@
 
 # Ignorar arquivos gerados pelo Visual Studio Code
 **/.vscode
+
+teste/
+testes/
