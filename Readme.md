@@ -33,18 +33,10 @@ mvn package
 
 ## Como compilar e executar um projeto Java com Maven
 
-**1 -** Execute o seguinte comando na raiz do projteto (onde fica o arquivo pom.xml) para compilar seu código:
 ```bash
-mvn compile
+mvn compile exec:java -Dexec.mainClass="<package_name>.App"
 ```
 
-**2 -** Em seguida execute o seguinte comando para executar o projeto:
-
-- Note que o comando ``-cp target/classes`` indica ao Java onde encontrar as classes compiladas.
-
-```bash
-java -cp target/classes <packageName>.App
-```
 <br>
 
 ## Como executar um teste Java com Maven no VSCode
