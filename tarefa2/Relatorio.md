@@ -50,38 +50,50 @@ Como no método `validateIdentifier()` existe apenas um parâmetro, ele será o 
 
 O argumento `s` pode ser qualquer _string_. A especificação diz que o identificador deve iniciar com pelo menos uma letra. Nos requisitos é também abordado o comprimento do parâmetro, a saber, mínimo 1 e máximo 6. Nesse sentido, serão verificadas as partições a seguir:
 
-- `s` iniciando com 1 letra seguida de alguns dígitos cujo comprimento total não ultrapasse 6 caracteres (partição comum/esperada).
-
-- apenas dígitos
-    - `len(s) == 1`;
-    - `len(s) >= 7`;
+- partição comum/esperada
+    -  `len(s) >= 1 && len(s) <= 6` e `s` cujo primeiro caractere é uma letra e pode ser seguida de alguns dígitos e/ou letras ou não;
 
 - apenas letras
-    - `len(s) == 1`;
-    - `len(s) >= 7`.
+    - `len(s) >= 1 && len(s) <= 6`;
+    - `len(s) >= 7`;
+
+- apenas dígitos.
  
 Além disso, os casos nulos e vazios também serão testados, porque são sempre bons casos de teste excepcionais.
 
-- `s` vazia;
+- `s` vazia `""`;
 - `s` com valor `null`;
 
 ### Para combinações de entrada
 
-Como já mencionado, o método a ser testado conta com apenas um parâmetro de entrada. Sendo assim, não é possível combinar valores diferentes em diferentes argumentos na entrada de tal método. No entanto, é possível atribuir valores variados ao parâmetro `s`.
-
-- `s` pode conter dígitos ou não, porém não pode iniciar com dígitos.
-    - `s` deve iniciar com uma letra.
+Como já mencionado, o método a ser testado conta com apenas um parâmetro de entrada. Sendo assim, não é possível combinar valores diferentes em diferentes argumentos na entrada de tal método.
 
 ### Para saídas esperadas
 
 Investigando as possíveis saídas, nota-se que o método `validateIdentifier()` pode retornar apenas um booleano, isto é, `true` ou `false`.
 
-## Identificar os valore limites
+## Passo 4 - Identificar os valores limites
 
-Defeitos nos limites do domínio de entrada são comuns em sistemas de _software_. Quando cria-se partições, elas assumem valores limites próximos que “dividem” as partições equivalentes. Sempre que um valor limite é identificado, é essencial testar o que acontece com o programa quando as entradas vão de um limite para o outro. Ou seja, teste de dois pontos quando há um valor limite. Um teste é para o _on point_ , que é o ponto que está dentro da partição; e o outro teste é para o _off point_, que é o ponto mais próximo do valor limite que pertence à partição à qual o _on point_ não pertence, isto é, a outra partição.
+Defeitos nos limites do domínio de entrada são comuns em sistemas de _software_. Quando cria-se partições, elas assumem valores limites próximos que “dividem” as partições equivalentes. Sempre que um valor limite é identificado, é essencial testar o que acontece com o programa quando as entradas vão de um limite para o outro. Ou seja, teste de dois pontos quando há um valor limite. Um teste é para o _in point_ , que é o ponto que está dentro da partição; e o outro teste é para o _off point_, que é o ponto mais próximo do valor limite que pertence à partição à qual o _in point_ não pertence, isto é, a outra partição.
 
-No caso de `validateIdentifier()`, um limite acontece quando a _string_ de entrada assume valores de comprimento de caracteres entre 1 e 7, passando (possivelmente) de uma saída `true` para `false`. Além disso, outro limite ocorre quando o primeiro caractere passa a ser um dígito ao invés de uma letra, fazendo a saída booleana ser alterada novamente.
+No caso de `validateIdentifier()`, um limite acontece quando a _string_ de entrada assume valores de comprimento de caracteres entre 1 e 7, passando (possivelmente) de uma saída `true` para `false`.
 
+Sempre que identificamos um limite, criamos dois testes para ele, um para cada lado do limite (_in point_ e _out point_). Sob essa ótica, serão elaborados 4 testes, dois para cada limite (de comprimento mínimo e máximo do identificador). São eles:
+
+- `s` vazia `""`;
 - `len(s) == 1`;
 - `len(s) == 6`;
 - `len(s) == 7`;
+
+
+## Passo 5 - Derivar os casos de teste
+
+Idealmente, combinaríamos todas as partições que criamos para cada uma das entradas. Entretanto, para evitar a criação deliberada que tal método resultaria, consideremos os seguintes casos de teste:
+
+## Passo 6 - Automatizar os casos de teste usando JUnit
+[Descrever dificuldades ou limitações ao implementar os casos de teste]
+
+## Passo 7 - Aumentar a suíte de testes por meio de experiência e criatividade
+- testar strings com acento
+- testar com caracteres especiais
+    - espaço
