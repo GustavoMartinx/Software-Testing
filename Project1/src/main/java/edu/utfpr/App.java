@@ -1,6 +1,7 @@
 package edu.utfpr;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class App {
@@ -10,8 +11,12 @@ public class App {
         List<Integer> right = new ArrayList<Integer>();
         List<Integer> result = new ArrayList<Integer>();
         
-        left.add(1);
-        right.add(2);
+        // Populando as listas
+        // left.add(1);
+        // right.add(2);
+
+        left.addAll(Arrays.asList());
+        right.addAll(Arrays.asList(5, 0));
         
         Add sumObj = new Add();
         result = sumObj.add(left, right);

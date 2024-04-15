@@ -20,19 +20,32 @@ O Passo 1 consiste em compreender os requisitos da entidade a ser testada. Sendo
 
 O processo executado foi:
 
-- Observar um caso de funcionamento comum. A lista `left` será populada com o valor `[1]` e a lista `right` com o valor `[2]` ;
+- Observar um caso de funcionamento comum. A lista `left` será populada com o valor `[1]` e a lista `right` com o valor `[2]`;
     - <(`left=[1]`, `right=[2]`), (`[3]`)>
+- Observar um caso com "vai um" ou _carry over_. A lista `left` receberá o valor 42, isto é, `[4, 2]` e a lista `right` o valor `[9]`;
+    - <(`left=[4, 2]`, `right=[9]`), (`[5, 1]`)>
+- Tomar a lista `left` como vazia, esperando que comporte-se de maneira equivalente ao número 0. Vejamos uma soma com `right` assumindo `[5, 0]`.
+    - <(`left=[]`, `right=[5, 0]`), (`[5, 0]`)>
 
 
 ## Passo 3 - Identificar as partições
 
 ### Para cada entrada individualmente
 
-Como no método `validateIdentifier()` existe apenas um parâmetro, ele será o único a ser analisado.
+#### Parâmetro `left`:
 
-### Parâmetro `s`:
+O argumento `left` deve ser uma lista de elementos do tipo inteiro. Nesse sentido, cada posição da lista deve ser um dígito entre 0 a 9.
 
-O argumento `s` pode ser qualquer _string_. A especificação diz que o identificador deve iniciar com pelo menos uma letra. Nos requisitos é também abordado o comprimento do parâmetro, a saber, mínimo 1 e máximo 6. Nesse sentido, serão verificadas as partições a seguir:
+
+- partição comum/esperada: len(left) > 1
+- left unitária
+- cada posição da lsita left conter mais de um dígito
+- left vazia
+- left nula
+
+
+---
+A especificação diz que o identificador deve iniciar com pelo menos uma letra. Nos requisitos é também abordado o comprimento do parâmetro, a saber, mínimo 1 e máximo 6. Nesse sentido, serão verificadas as partições a seguir:
 
 - partição comum/esperada
     -  `len(s) >= 1 && len(s) <= 6` e `s` cujo primeiro caractere é uma letra e pode ser seguida de alguns dígitos e/ou letras ou não;
@@ -47,6 +60,13 @@ Além disso, os casos nulos e vazios também serão testados, porque são sempre
 
 - `s` vazia `""`;
 - `s` com valor `null`;
+
+
+#### Parâmetro `left`:
+
+
+
+
 
 ### Para combinações de entrada
 
