@@ -15,7 +15,7 @@ public class App {
         // left.add(1);
         // right.add(2);
 
-        left.addAll(Arrays.asList());
+        left.addAll(Arrays.asList(10, 1));
         right.addAll(Arrays.asList(5, 0));
         
         Add sumObj = new Add();
