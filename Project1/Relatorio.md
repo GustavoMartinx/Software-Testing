@@ -119,12 +119,12 @@ Idealmente, combinaríamos todas as partições que criamos para cada uma das en
 - T06: `left == [1, 2]`, `right == [3]`: `right` contém um único dígito válido
 - T07: `left == [1, 2, 3]`, `right == [4]`: `left` contém vários dígitos válidos
 - T08: `left == [1]`, `right == [2, 3, 4]`: `right` contém vários dígitos válidos
-- T09: `left == [10]`, `right == [1, 2, 3]`
-- T10: `left == [1, 2, 3]`, `right == [-1]`
+- T09: `left == [10]`, `right == [1, 2, 3]`: `left` contém um número maior que 9
+- T10: `left == [1, 2, 3]`, `right == [-1]`: `right` contém um número negativo
 
 
 ## Passo 6 - Automatizar os casos de teste usando JUnit
-[Descrever dificuldades ou limitações ao implementar os casos de teste]
+Não houveram dificuldades significativas na automatização dos testes do método `add()`.
 
 ## Passo 7 - Aumentar a suíte de testes por meio de experiência e criatividade
 
