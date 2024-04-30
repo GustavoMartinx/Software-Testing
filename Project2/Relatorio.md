@@ -3,7 +3,7 @@ Método ``leftPad()``
 
 <br>
 
-AUTHOR <br>
+AUTOR <br>
 Gustavo Zanzin Guerreiro Martins
 
 
@@ -25,49 +25,43 @@ O argumento `str` deve ser um objeto Java do tipo _String_. É permitida a passa
 
 ##### Partições válidas
 
-- partição comum/esperada: tamanho da lista `str` sendo maior ou igual a 1 e todas as suas `i` posições sendo um dígito entre 0 e 9, isto é, `len(str) >= 1` e `str[i] >= 0 && str[i] <= 9`;
-
-- o parâmetro `str` ser passado como `null`.
-
-- `str` assumir o valor de uma lista vazia.
+- O parâmetro `str` ser passado como `null`.
+- Assumir o valor de uma _string_ vazia, ou seja, `""`.
+- Tamanho da _string_ `str` sendo maior ou igual a 1, isto é, `len(str) >= 1`;
+- Assumindo valores de caracteres especiais (incluindo espaço em branco).
 
 ##### Partições inválidas
 
-- uma posição da lista `str` conter mais de um dígito, isto é, um número maior que 9 (`str[i] > 9`);
-
-- uma posição da lista `str` conter um dígito negativo (`str[i] < 0`).
-
+Com base na especificação de requisitos e sendo o parâmetro `str` do tipo _string_ (ou seja, impossível realizar a inserção de um argumento de outro tipo), não foi possível identificar partições inválidas para `str` neste caso específico.
 
 <br>
 
 #### Parâmetro `padStr`:
 
-Como o parâmetro `padStr` também é uma lista de elementos do tipo inteiro, cuja cada posição deve ser um dígito entre 0 a 9, ou seja, idêntico ao parâmetro `left`, obtem-se as mesmas classes de equivalência já definidas:
+O parâmetro `padStr` também é um objeto Java do tipo _String_. Este, no método `leftPad()`, tem como papel ser o conteúdo que preencherá a _string_ de entrada. Outrossim, quando assumir os valores `null` ou string vazia (`""`) deve ser internamente tratado como um espaço em branco, ou seja, `" "`.
+
+Entretanto, como a especificação de requisitos foi vaga e existiu o livre arbítrio relacionado às decisões de projeto durante a implementação do método, definiu-se que não há limite de comprimento para a _string_ em questão. Nesse sentido, quando `padStr` extrapola o tamanho que deveria ter para preencher `str`, o vetor de caracteres `padStr` é truncado.
 
 ##### Partições válidas
 
-- partição comum/esperada: tamanho da lista `padStr` sendo maior ou igual a 1 e todas as suas `i` posições sendo um dígito entre 0 e 9, isto é, `len(padStr) >= 1` e `padStr[i] >= 0 && padStr[i] <= 9`;
-
-- `padStr` assumir o valor de uma lista vazia.
+- O parâmetro `padStr` pode ser passado como `null` ou como uma _string_ vazia, ou seja, `""`.
+- Tamanho da _string_ `padStr` sendo maior ou igual a 1, isto é, `len(padStr) >= 1`;
+- Assumindo valores de caracteres especiais.
 
 ##### Partições inválidas
 
-- uma posição da lista `padStr` conter mais de um dígito, isto é, um número maior que 9 (`padStr[i] > 9`);
-
-- uma posição da lista `padStr` conter um dígito negativo (`padStr[i] < 0`).
-
-- o parâmetro `padStr` ser passado como `null`.
+Com base na especificação de requisitos e sendo o parâmetro `padStr` do tipo _string_ (ou seja, impossível realizar a inserção de um argumento de outro tipo), não foi possível identificar partições inválidas para `padStr` neste caso específico.
 
 <br>
 
 #### Parâmetro `size`:
 
-Como o parâmetro `size` também é uma lista de elementos do tipo inteiro, cuja cada posição deve ser um dígito entre 0 a 9, ou seja, idêntico ao parâmetro `left`, obtem-se as mesmas classes de equivalência já definidas:
+Por outro lado, o parâmetro `size` é um número do tipo inteiro (`int`) no qual deve representar o tamanho máximo da _string_ preenchida que será retornada pelo método `leftPad()`. Dessa forma, obtem-se as seguintes classes de equivalência:
 
 ##### Partições válidas
 
-- partição comum/esperada: tamanho da lista `size` sendo maior ou igual a 1 e todas as suas `i` posições sendo um dígito entre 0 e 9, isto é, `len(size) >= 1` e `size[i] >= 0 && size[i] <= 9`;
-
+[aqui]
+- Tamanho de `size` sendo maior ou igual a 1 e todas as suas `i` posições sendo um dígito entre 0 e 9, isto é, `len(size) >= 1` e `size[i] >= 0 && size[i] <= 9`;
 - `size` assumir o valor de uma lista vazia.
 
 ##### Partições inválidas
