@@ -56,22 +56,15 @@ Com base na especificação de requisitos e sendo o parâmetro `padStr` do tipo 
 
 #### Parâmetro `size`:
 
-Por outro lado, o parâmetro `size` é um número do tipo inteiro (`int`) no qual deve representar o tamanho máximo da _string_ preenchida que será retornada pelo método `leftPad()`. Dessa forma, obtem-se as seguintes classes de equivalência:
+Por outro lado, o parâmetro `size` é um número do tipo inteiro (`int`) no qual deve representar o comprimento máximo da _string_ preenchida que será retornada pelo método `leftPad()`. Dessa forma, obtem-se as seguintes classes de equivalência:
 
 ##### Partições válidas
 
-[aqui]
-- Tamanho de `size` sendo maior ou igual a 1 e todas as suas `i` posições sendo um dígito entre 0 e 9, isto é, `len(size) >= 1` e `size[i] >= 0 && size[i] <= 9`;
-- `size` assumir o valor de uma lista vazia.
+- Representando qualquer valor maior ou igual a 0 (`size >= 0`).
 
 ##### Partições inválidas
 
-- uma posição da lista `size` conter mais de um dígito, isto é, um número maior que 9 (`size[i] > 9`);
-
-- uma posição da lista `size` conter um dígito negativo (`size[i] < 0`).
-
-- o parâmetro `size` ser passado como `null`.
-
+- Assumir um valor negativo (`size < 0`).
 
 
 <br>
@@ -79,18 +72,26 @@ Por outro lado, o parâmetro `size` é um número do tipo inteiro (`int`) no qua
 
 ### Para combinações de entrada
 
-A identificação das partições para os parâmetros `left` e `right` foi realizada com base nos requisitos estabelecidos para cada um individualmente. Para ambos os parâmetros, foram definidas partições válidas e inválidas, considerando o tamanho das listas e os valores dos dígitos em cada posição. Sob essa ótica, não foi identificada a necessidade de combinar `left` e `right` para identificar novas partições, uma vez que as condições de validade foram abordadas de forma abrangente para cada parâmetro separadamente.
+De acordo com a especificação de requisitos, também é possível identificar classes de equivalência a partir da combinação dos parâmetros de entrada. Sob essa ótica, identificou-se as seguintes partições:
+
+- `size` maior ou igual a soma dos tamanhos de `str` e `padStr`.
+- `size` menor que a soma dos tamanhos de `str` e `padStr`.
+- `str` vazia e `size` maior que o comprimento de `padStr`.
+- `str` vazia e `size` menor que o comprimento de `padStr`.
+
+<br>
 
 
 ### Para saídas esperadas
 
-Investigando as possíveis saídas, nota-se que o método `add()` pode retornar uma lista de inteiros, `null`, ou ainda uma `IllegalArgumentException`. Nesse sentido, é possível considerar diferentes valores de entrada, induzindo tais saídas.
+Investigando as possíveis saídas, nota-se que o método `leftPad()` pode retornar uma _string_, `null`, ou ainda uma `Exception`. Nesse sentido, é possível considerar diferentes valores de entrada, induzindo tais saídas.
 
-- Partição de saída válida (soma de `left` e `right`): engloba os casos em que a soma de `left` e `right` é calculada corretamente e resulta em uma lista de inteiros.
+- Partição de saída válida: engloba os casos em que o preenchimento é efetuado corretamente e resulta em uma nova _string_ preenchida. Esses casos são obtidos quando tem-se:
+    - `size` maior ou igual a soma dos tamanhos de `str` e `padStr`.
 
-- Partição de saída nula (`null`): abrange os casos em que um dos parâmetros é `null`, levando a um resultado nulo.
+- Partição de saída nula (`null`): abrange o caso em que o argumento `str` é passado como `null`, levando a um resultado nulo.
 
-- Partição de exceção (`IllegalArgumentException`): inclui os casos em que um dos dígitos de `left` ou `right` é negativo ou maior que 9, por exemplo. Gerando assim, o lançamento da exceção `IllegalArgumentException`.
+- Partição de exceção (`Exception`): inclui os casos em que `size` é negativo e quando o comprimento de `str` é maior que `size`. Gerando assim, o lançamento da exceção `Exception`.
 
 
 ## Passo 4 - Identificar os valores limites
