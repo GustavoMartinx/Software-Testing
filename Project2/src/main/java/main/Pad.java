@@ -8,11 +8,15 @@ public class Pad
             return null;
         }
 
+        if(size < -1) {
+            throw new Exception("Size must be positive.");
+        }
+
         if (padStr == null || padStr.isEmpty()) {
             padStr = " ";
         }
         
-        if (padStr.length() >= size || str.length() == size) {
+        if (padStr.length() > size || str.length() == size) {
             return str;
         }
 
@@ -45,12 +49,14 @@ public class Pad
     }
 
     public static void main(String[] args) {
-        String str = "ana";
-        String padStr = "jao";
-        int size = 16;
+        String str = "";
+        String padStr = "";
+        int size = 0;
 
         try {
-            System.out.println(leftPad(str, size, padStr));
+            String teste = "";
+            System.out.println("Teste: " + teste.length());
+            System.out.println("["+leftPad(str, size, padStr)+"]");
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
