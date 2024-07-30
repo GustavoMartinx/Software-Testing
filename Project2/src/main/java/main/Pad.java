@@ -8,8 +8,8 @@ public class Pad
             return null;
         }
 
-        if(size < -1) {
-            throw new Exception("Size must be positive.");
+        if(size < 0) {
+            throw new Exception("Error: 'size' parameter cannot be negative.");
         }
 
         if (padStr == null || padStr.isEmpty()) {
@@ -22,7 +22,7 @@ public class Pad
 
         // caso a string original seja maior que o tamanho final, exception
         if(str.length() > size) {
-            throw new Exception("Error: Size can not be grater than str length.");
+            throw new Exception("Error: 'str' length cannot be greater than size.");
         }
 
         // instanciando a string final preenchida a ser retornada
@@ -36,7 +36,7 @@ public class Pad
 
         while (padded.length() < padSize) {
             // adiciona o próximo caractere de padChars no início da string final
-            padded.insert(0, padChars[padIndex]);
+            padded.insert(padIndex, padChars[padIndex]);
             
             // incrementa o índice para obter o próximo caractere de padChars
             padIndex = (padIndex + 1) % padChars.length;
@@ -49,14 +49,12 @@ public class Pad
     }
 
     public static void main(String[] args) {
-        String str = "";
-        String padStr = "";
-        int size = 0;
+        String str = "asdf";
+        String padStr = "-";
+        int size = 4;
 
         try {
-            String teste = "";
-            System.out.println("Teste: " + teste.length());
-            System.out.println("["+leftPad(str, size, padStr)+"]");
+            System.out.println("[" + leftPad(str, size, padStr) + "]");
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
