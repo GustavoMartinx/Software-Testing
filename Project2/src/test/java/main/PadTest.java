@@ -7,6 +7,10 @@ import org.junit.Test;
 
 public class PadTest 
 {
+    /*****************************
+     * Specification Based Tests *
+    *****************************/
+
     // T01
     @Test
     public void testStrNull()
@@ -199,7 +203,7 @@ public class PadTest
     public void testStrEmptyAndSizeGreaterThanPadStr()
     {
         String padded;
-        String str = " ";
+        String str = "";
         int size = 4;
         String padStr = "><";
 
@@ -312,7 +316,7 @@ public class PadTest
 
         try {
             padded = Pad.leftPad(str, size, padStr);
-            assertTrue(padded.equals("aDB"));
+            assertTrue(padded.equals(str));
         } catch (Exception e) {
             assertTrue(false);
         }
