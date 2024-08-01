@@ -47,17 +47,4 @@ public class Pad
 
         return padded.toString();
     }
-
-    public static void main(String[] args) {
-        String str = "asdf";
-        String padStr = "-";
-        int size = 4;
-
-        try {
-            System.out.println("[" + leftPad(str, size, padStr) + "]");
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-
-    }
 }
