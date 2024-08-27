@@ -1,8 +1,7 @@
 package main;
 
+import java.util.HashMap;
 import java.util.Scanner;
-
-import main.java.main.Simbols;
 
 /**
  * Programa que recebe um algarismo romano (como uma string) e retorna sua representação no sistema
@@ -11,47 +10,51 @@ import main.java.main.Simbols;
  */
 public class RomanToArabicConversor 
 {
-    public static int romanToArabic(String romanSymbol) {
-        switch (romanSymbol) {
-            case Simbols.one:
-                return 1;
-
-            case Simbols.five:
-                return 5;
-
-            case Simbols.ten:
-                return 10;
-
-            case Simbols.fifty:
-                return 50;
-
-            case Simbols.oneHundred:
-                return 100;
-
-            case Simbols.fiveHundred:
-                return 500;
-
-            case Simbols.oneThousand:
-                return 1000;
-
-            default:
-                throw new IllegalArgumentException("Invalid Roman symbol: " + romanSymbol);
-        }
+    public static void mapInitialization(HashMap<Character,Integer> map) {
+        map.put('I', 1);
+        map.put('V', 5);
+        map.put('X', 10);
+        map.put('L', 50);
+        map.put('C', 100);
+        map.put('D', 500);
+        map.put('M', 1000);
+        // map.put(null, null);
     }
     
     static int conversor(String romanSymbol) throws IllegalArgumentException {
         int arabicAlgarism = 0;
-        int bigger = 0;
-        int current;
-        int previous;
+
+        int current = 0;
+        int previous = 0;
+        
+        HashMap<Character, Integer> romanToArabicMap = new HashMap<Character, Integer>();
+        mapInitialization(romanToArabicMap);
+
+        // caso simples: hashmap resolve
+        
+        // caso composto por mais de um algarismos (sem subtração)
+        // III, VI
+
+        // notação subtrativa simples
+        // IV, IX
+
+        // notação subtrativa complexa
+        // XIV, XXIX
+
 
         for(Character algarism : romanSymbol.toCharArray()) {
-            current = romanToArabic(algarism);
+            current = romanToArabicMap.get(algarism);
 
-            if (current > bigger) {
-                bigger = current;
+            // if (current == null) {
+            //     throw new IllegalArgumentException("Algarismo Romano inválido: " + current);
+            // }
+
+            // veririficação em conjunto aos 4 últimos algarismos
+
+            if (current > previous) {
+                arabicAlgarism = (current - previous) + arabicAlgarism;
             } else {
-                arabicAlgarism += current;
+                arabicAlgarism += current; // caso somposto por mais de um algarismo (sem subtração)
             }
 
             previous = current;
@@ -68,6 +71,9 @@ public class RomanToArabicConversor
 
             int arabicAlgarism = conversor(romanSymbol);
             System.out.println("Sua representação arábica é: " + arabicAlgarism);
+        } 
+        catch(IllegalArgumentException e) {
+            System.err.println(e);
         }
     }
 }
