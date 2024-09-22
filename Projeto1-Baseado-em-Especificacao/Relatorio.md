@@ -1,19 +1,18 @@
 # Trabalho Prático de Teste Baseado em Especificação
 
-Método para adição de números inteiros muito, muito grandes
-
-<br>
-
-Author
-
-Gustavo Zanzin Guerreiro Martins
+**Autor**<br>
+[Gustavo Zanzin Guerreiro Martins](https://www.linkedin.com/in/gustavo-martinx/)
 
 
 ## Introdução
 
-Este documento descreve o processo utilizado para derivar casos de teste para o método `add()` da classe `Add`. O método realiza a operação de adição de dois números inteiros de qualquer tamanho. Perceba que esse problema parece ser um _toy example_, mas é útil em computação científica uma vez que para certas aplicações é necessário fazer cáculos matemáticos com números inteiros muito, muito grandes. Nessa situação, os tipos básicos e os operadores matemáticos das linguagens de programação não suportam o cáculo.
+Este documento descreve o processo utilizado para derivar casos de teste para o método `add()` da classe `Add` através da metodologia de Teste Baseado em Especificação.
 
-O Passo 1 consiste em compreender os requisitos da entidade a ser testada. Sendo assim, este relatório descreverá a partir do Passo 2.
+Em Teste Baseado em Especificação, os casos de teste são derivados a partir das especificações de requisitos do sistema. O objetivo é garantir que o sistema atenda às expectativas definidas, validando se ele se comporta conforme a especificação, sem considerar sua implementação interna.
+
+O método `add()` realiza a operação de adição de dois números inteiros de qualquer tamanho. Perceba que esse problema parece ser um _toy example_, mas é útil em computação científica uma vez que para certas aplicações é necessário fazer cáculos matemáticos com números inteiros muito, muito grandes. Nessa situação, os tipos básicos e os operadores matemáticos das linguagens de programação não suportam o cáculo.
+
+O Passo 1 da metodologia de Teste Baseado em Especificação consiste em compreender os requisitos da entidade a ser testada. Sendo assim, este relatório descreverá a partir do Passo 2.
 
 
 ## Passo 2 - Explorar o funcionamento do programa
